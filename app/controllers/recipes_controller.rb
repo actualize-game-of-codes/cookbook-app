@@ -9,4 +9,8 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find_by(id: recipe_id)
     render "show.html.erb"
   end
+
+  def new
+    render "new.html.erb"
+  end
 end
