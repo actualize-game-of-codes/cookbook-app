@@ -13,4 +13,15 @@ class RecipesController < ApplicationController
   def new
     render "new.html.erb"
   end
+
+  def create
+    recipe = Recipe.new(
+      title: params[:form_title],
+      chef: params[:form_chef],
+      ingredients: params[:form_ingredients],
+      directions: params[:form_directions]
+    )
+    recipe.save
+    render "create.html.erb"
+  end
 end
