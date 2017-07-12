@@ -22,7 +22,7 @@ class RecipesController < ApplicationController
       directions: params[:form_directions]
     )
     recipe.save
-    render "create.html.erb"
+    redirect_to "/recipes/#{recipe.id}"
   end
 
   def edit
