@@ -39,6 +39,7 @@ class RecipesController < ApplicationController
     @recipe.ingredients = params[:form_ingredients]
     @recipe.directions = params[:form_directions]
     @recipe.save
+    flash[:success] = "Recipe successfully updated!"
     redirect_to "/recipes/#{@recipe.id}"
   end
 
