@@ -46,6 +46,6 @@ class RecipesController < ApplicationController
     recipe_id = params[:id]
     @recipe = Recipe.find_by(id: recipe_id)
     @recipe.destroy
-    render "destroy.html.erb"
+    redirect_to "/recipes"
   end
 end
