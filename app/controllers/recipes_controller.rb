@@ -39,7 +39,7 @@ class RecipesController < ApplicationController
     @recipe.ingredients = params[:form_ingredients]
     @recipe.directions = params[:form_directions]
     @recipe.save
-    render "update.html.erb"
+    redirect_to "/recipes/#{@recipe.id}"
   end
 
   def destroy
