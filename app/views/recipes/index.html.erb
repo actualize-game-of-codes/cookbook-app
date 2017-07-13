@@ -13,7 +13,12 @@
               <li><%= ingredient %></li>
             <% end %>
           </ul>
-          <h4><%= recipe.directions %></h4>
+          <h3>Directions</h3>
+          <ol>
+            <% recipe.directions_list.each do |direction| %>
+              <li><%= direction %></li>
+            <% end %>
+          </ol>
         </div>
       </div>
     <% end %>

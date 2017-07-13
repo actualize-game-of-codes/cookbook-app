@@ -13,6 +13,6 @@ class Recipe < ApplicationRecord
   end
 
   def directions_list
-    return directions.split(", ")
+    return directions.split(", ").map { |direction| direction.capitalize }
   end
 end
