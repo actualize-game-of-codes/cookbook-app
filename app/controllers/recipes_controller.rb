@@ -56,4 +56,9 @@ class RecipesController < ApplicationController
     flash[:warning] = "Recipe successfully destroyed!"
     redirect_to "/recipes"
   end
+
+  def search
+    @recipes = Recipe.all
+    render "index.html.erb"
+  end
 end
