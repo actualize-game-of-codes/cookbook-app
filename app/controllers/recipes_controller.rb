@@ -1,10 +1,16 @@
 class RecipesController < ApplicationController
   def index
     sort_attribute = params[:sort_by]
-    if sort_attribute
-      @recipes = Recipe.all.order(sort_attribute)
+    search_terms = params[:input_search_terms]
+
+    if search_terms
+      @recipes = Recipe.where("title ILIKE ?", "%" + search_terms + "%")
     else
       @recipes = Recipe.all
+    end
+
+    if sort_attribute
+      @recipes = @recipes.all.order(sort_attribute)
     end
     render "index.html.erb"
   end
@@ -55,10 +61,5 @@ class RecipesController < ApplicationController
     @recipe.destroy
     flash[:warning] = "Recipe successfully destroyed!"
     redirect_to "/recipes"
-  end
-
-  def search
-    @recipes = Recipe.all
-    render "index.html.erb"
   end
 end

@@ -8,6 +8,4 @@ Rails.application.routes.draw do
   get "/recipes/:id/edit" => "recipes#edit"
   patch "/recipes/:id" => "recipes#update"
   delete "/recipes/:id" => "recipes#destroy"
-
-  get "/recipes_search" => "recipes#search"
 end
