@@ -4,9 +4,9 @@ class RecipesController < ApplicationController
     search_terms = params[:input_search_terms]
 
     if search_terms
-      @recipes = Recipe.where("title ILIKE ?", "%" + search_terms + "%")
+      @recipes = current_user.recipes.where("title ILIKE ?", "%" + search_terms + "%")
     else
-      @recipes = Recipe.all
+      @recipes = current_user.recipes
     end
 
     if sort_attribute

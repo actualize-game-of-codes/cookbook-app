@@ -1,4 +1,6 @@
 class Recipe < ApplicationRecord
+  belongs_to :user
+
   def ingredients_list
     array = ingredients.split(", ")
     new_array = []
